@@ -80,8 +80,8 @@ class BookingController extends Controller
 
         $newBooking->save();
 
-        $booking = Booking::latest()->first();
-        return view('bookings.guest', compact('booking'));
+        $bookings = Booking::all();
+        return view('bookings.booking', compact('bookings'));
     }
 
     /**
