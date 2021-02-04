@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use App\Http\Requests\BookingFormRequest;
 
 class BookingController extends Controller
 {
@@ -51,9 +52,9 @@ class BookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $booking = Booking::find($id);
+        return view('bookings.edit', compact('booking'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -61,9 +62,23 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BookingFormRequest $request, $id)
     {
-        //
+        $data = $request->validated();
+
+        $oldBooking = Booking::find($id);
+
+        $oldBooking->guest_full_name = $data['guest_full_name'];
+        $oldBooking->guest_credit_card = $data['guest_credit_card'];
+        $oldBooking->room = $data['room'];
+        $oldBooking->from_date = $data['from_date'];
+        $oldBooking->to_date = $data['to_date'];
+        $oldBooking->more_details = $data['more_details'];
+
+        $oldBooking->save();
+
+        $booking = Booking::find($id);
+        return view('bookings.show', compact('booking'));
     }
 
     public function store(Request $request)

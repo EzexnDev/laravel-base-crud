@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<button></button>
+<button><li><a href="{{route('bookings.create')}}" class="btn btn-outline-primary">New Booking</a></li></button>
     <table>
         <thead>
             <tr>
@@ -22,10 +22,9 @@
                   <td> {{$booking->room}} </td>
                   <td> {{$booking->from_date}} </td>
                   <td> {{$booking->to_date}} </td>
-                  <td> <a href="{{$booking->id}}">More Details</a></td>
+                  <td> <a href="{{route('bookings.show', $booking->id)}}">More Details</a></td>
               </tr>
              @endforeach
        </tbody>
     </table>
-    <li><a href="{{route('bookings.create')}}" class="btn btn-outline-primary">New Booking</a></li>
 @endsection

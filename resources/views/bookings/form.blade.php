@@ -6,7 +6,7 @@
     <h2 class='title-create'>New Booking</h2>
     <div class="formcontainer">
     <hr/>
-    <div class="container">
+    {{-- <div class="container">
         <div>
             <label for="fullname"><strong>Full Name</strong></label>
             <input type="text" placeholder="Enter Fullname" name="fullname" required>
@@ -40,7 +40,24 @@
         </div>
         <textarea id="w3review" name="moredetails" rows="4" cols="50">
         </textarea>
-    </div>
+    </div> --}}
+    {{-- <label for="fullname"><strong>Full Name</strong></label> --}}
+    <input type="text" placeholder="Enter Fullname" name="fullname" required><br><br>
+
+    {{-- <label for="creditcard"><strong>Num Credit Card</strong></label> --}}
+    <input type="text" name="creditcard" required placeholder="creditcard"><br><br>
+
+    {{-- <label for="room"><strong>Room</strong></label> --}}
+    <input type="text" name="room" required placeholder="Room"><br><br>
+
+    {{-- <label for="fromdate"><strong>Start date:</strong></label> --}}
+    <input type="string" name="fromdate" required placeholder="From Date"><br><br>
+
+    {{-- <label for="todate"><strong>To date:</strong></label> --}}
+    <input type="string" name="todate" required placeholder="To Date"><br><br>
+
+    {{-- <label for="moredetails"><strong>More Details</strong></label> --}}
+    <input type="text" name="moredetails" required placeholder="More Details">
     <button type="submit">Create</button>
 </form>
 

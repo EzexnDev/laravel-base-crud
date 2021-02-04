@@ -20,5 +20,8 @@ use Illuminate\Support\Facades\Route;
 // // CONTROLLA CHE LA ROTTA /CREATE SIA CORRETTA PRIMA DI DICHIARARE LA FUNCTION
 // Route::post('/create', 'BookingController@create')->name('');
 
+Route::resource('/category', 'CategoryController');
 
-Route::resource('/bookings', 'BookingController');
+Route::resource('/post', 'PostController');
+
+Route::resource('/postinformation/{id}', 'PostInformation');
